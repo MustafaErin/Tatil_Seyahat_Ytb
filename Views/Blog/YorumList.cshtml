@@ -1,0 +1,48 @@
+﻿@model List<Tatil_Seyahat_Ytb.Models.Entities.Yorumlar>
+@{
+    ViewBag.Title = "YorumList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+}
+<h2 class="alert alert-success">Yorum Listesi</h2>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>No:</th>
+        <th>Kullanıcı Adı</th>
+        <th>Yorum</th>
+        <th>Mail</th>
+        <th>Blog</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.KullanıcıAdı</td>
+            <td>@item.Yorum</td>
+            <td>@item.Mail</td>
+            <td>@item.Blog.Baslık</td>
+            <td><a href="/Blog/YorumSil/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Blog/YorumGüncelle/@item.Id" class="btn btn-warning">Güncelle</a></td>
+
+
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+<a href="/Admin/AddBlog/" class="btn btn-success">Yeni Yorum Ekle</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

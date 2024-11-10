@@ -1,0 +1,60 @@
+﻿@model PagedList.IPagedList<Tatil_Seyahat_Ytb.Models.Entities.Blog>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h2 class="alert alert-success">Blog Listesi</h2>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>No:</th>
+        <th>Başlık</th>
+        <th>Tarih</th>
+        <th>Foto</th>
+        <th>Detaylar</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Baslık</td>
+            <td>@item.Tarih.ToShortDateString()</td>
+            <td><img src="@item.BlogImage" alt="Geçmiş zaman olurki" style="width:100px;height:65px;" /></td>
+            <td><a href="/Blog/BlogDetay/@item.Id" class="btn btn-success">Detaylar</a></td>
+            <td><a href="/Admin/DeleteBlog/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/UpdateBlog/@item.Id" class="btn btn-warning">Güncelle</a></td>
+
+
+        </tr>
+    }
+
+</table>
+
+<br />
+
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+<br />
+<a href="/Admin/AddBlog/" class="btn btn-success">Yeni Blog Ekle</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,25 @@
+﻿@model List<Tatil_Seyahat_Ytb.Models.Entities.Hakkımızda>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_WebLeyout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <div class="content">
+        <div class="wrap">
+            <div class="about">
+                <h3>Hakkımızda</h3>
+                @foreach (var item in Model)
+                {
+                    <img src="@item.FotoUrl" alt="" />
+                    <p>@item.Acıklama</p>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

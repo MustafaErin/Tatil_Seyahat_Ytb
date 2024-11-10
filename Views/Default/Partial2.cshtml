@@ -1,0 +1,26 @@
+﻿@model List<Tatil_Seyahat_Ytb.Models.Entities.Blog>
+
+@{ 
+    var count = 0;
+}
+<div class="padding">
+    <h4>En Popüler 10 Blog</h4>
+    <ul class="list list-pad">
+        @foreach (var item in Model)
+        {
+            count++;
+            <li class="list-bg"><span>@count.</span><a href="/Blog/BlogDetay/@item.Id">@item.Baslık</a></li>
+        }
+
+        @*<li class="list-bg1"><span>2.</span><a href="#">congue nihil imperdiet</a></li>
+        <li class="list-bg"><span>3.</span><a href="#">Aadipisicing elit sed do</a></li>
+        <li class="list-bg1"><span>4.</span><a href="#">luptatum zzril  </a></li>
+        <li class="list-bg"><span>5.</span><a href="#">Claritas est etiam</a></li>
+        <li class="list-bg1"><span>6.</span><a href="#">claritatem insitam;</a></li>
+        <li class="list-bg"><span>7.</span><a href="#">velit esse molestie consequa</a></li>
+        <li class="list-bg1"><span>8.</span><a href="#">nostrud exerci tation ulla</a></li>
+        <li class="list-bg"><span>9.</span><a href="#">demonstraverunt lectores</a></li>
+        <li class="list-bg1"><span>10.</span><a href="#">dolore te feu</a></li>*@
+    </ul>
+    <a href="/Blog/index/" class="link1">Tüm Blogları Gör</a>
+</div>
